@@ -1,3 +1,5 @@
+// Create an Object
+
 const Student = {
     name: 'Sumeet Kolekar',
     phone: 9145633119,
