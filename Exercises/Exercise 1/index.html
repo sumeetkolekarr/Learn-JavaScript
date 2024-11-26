@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number Generator</title>
+  </head>
+  <body>
+    <h1>Guess the number</h1>
+  </body>
+  <script>
+    let num = parseInt(prompt("Enter the Number!"));
+    let randNum = Math.floor(Math.random() * 100) + 1;
+    let chances = 0;
+    console.log(randNum)
+    do {
+      num = parseInt(prompt("Enter the Number!"));
+      chances++;
+      if (num == randNum) {
+        console.log(`You won with a score of ${100 - chances}`);
+        break;
+      } else {
+        console.log("Wrong Guess Made");
+      }
+      if (chances > 98) {
+        console.log("You ran out of chances");
+        break;
+      }
+    } while (num != randNum);
+  </script>
+</html>

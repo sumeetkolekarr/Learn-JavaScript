@@ -72,5 +72,30 @@ let numArr = [4, 52, 74, 1, 23, 45];
 // console.log(typeof numArr);
 
 // Slices out a piece from an array
-let newNumArr = numArr.slice(3,5)
-console.log(newNumArr);
+// let newNumArr = numArr.slice(3,5)
+// console.log(newNumArr);
+
+// Loops in array
+// for (let i = 0; i < numArr.length; i++) {
+//   console.log(numArr[i]);
+// }
+
+// ForEach Loop
+// numArr.forEach((element)=>{
+//     console.log(element+element);
+// })
+
+// Array From
+// let catName = 'Bunny'
+// let arr = Array.from(catName)
+// console.log(arr);
+
+// For of 
+// for (const i of numArr) {
+//     console.log(i);
+// }
+
+// For In 
+// for (const key in numArr) {
+//     console.log(numArr[key]);
+// }
