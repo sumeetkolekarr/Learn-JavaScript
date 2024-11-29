@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone, Paper and Scissors</title>
+  </head>
+  <body>
+    Stone, Paper and Scissors.
+    <p>Choose: 0 for Stone, 1 for Scissors, 2 for Paper or C to Cancel</p>
+  </body>
+  <script>
+    let options = ["Stone", "Scissors", "Paper"];
+    let runAgain = true;
+    do {
+      let randInt = Math.floor(Math.random() * 3);
+      let computer = randInt;
+      let player = prompt("Enter your Choice...");
+      if (player == "C") {
+        break;
+      }
+      player = parseInt(player);
+      while (player < 0 || player > 2 || isNaN(player)) {
+        player = parseInt(
+          prompt(
+            "Invalid input! Please enter 0 (Stone), 1 (Scissors) or 2 (Paper):"
+          )
+        );
+      }
+      if (player === computer) {
+        alert("Draw");
+      } else if (
+        (player === 0 && computer === 1) ||
+        (player === 1 && computer === 2) ||
+        (player === 2 && computer === 0)
+      ) {
+        alert("Player Wins...");
+      } else {
+        alert("Computer Wins...");
+      }
+      console.log(options[player]);
+      console.log(options[computer]);
+      runAgain = confirm("Do you want to play again...");
+    } while (runAgain);
+  </script>
+</html>

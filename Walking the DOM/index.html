@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking the DOM</title>
+</head>
+<body>
+    <div>
+        <p>This is me</p>
+        <p>and I am great!</p>
+        <p>Hello once more</p>
+    </div>
+</body>
+<script>
+    console.log(document.body.firstChild)
+    console.log(document.body.lastChild)
+    // It is a list not an array
+    console.log(document.body.childNodes)
+
+    console.log(document.body.firstChild == document.body.childNodes[0])
+    console.log(document.body.lastChild == document.body.childNodes[document.body.childNodes.length -1])
+</script>
+</html>

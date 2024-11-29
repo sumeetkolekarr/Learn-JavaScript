@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alert, Confirm and Prompt</title>
+  </head>
+  <body></body>
+  <script>
+    // These methods block the running thread
+    alert("Script Runs!");
+    let a = prompt("Enter a here", "56");
+    a = Number.parseInt(a);
+    alert("You entered a " + typeof a);
+    let write = confirm("Do you want to write it to the page?");
+    if (write) {
+      document.write(a);
+    }
+  </script>
+</html>
