@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div
+      class="container m-auto w-100 justify-content-center align-item-center d-flex my-4"
+    >
+      <button type="button" onclick="showJoke()" class="btn btn-primary">
+        Show Joke
+      </button>
+    </div>
+    <div
+      class="container m-auto w-100 justify-content-center align-item-center d-flex my-4"
+    >
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <p class="card-text">Press the above button to see jokes</p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const jokesData = {
+        jokes: [
+          {
+            id: 1,
+            joke: "Why don’t scientists trust atoms? Because they make up everything!",
+          },
+          {
+            id: 2,
+            joke: "Why did the scarecrow win an award? Because he was outstanding in his field!",
+          },
+          {
+            id: 3,
+            joke: "What do you call fake spaghetti? An impasta!",
+          },
+          {
+            id: 4,
+            joke: "Why don’t skeletons fight each other? They don’t have the guts.",
+          },
+          {
+            id: 5,
+            joke: "What do you get if you cross a snowman and a vampire? Frostbite.",
+          },
+          {
+            id: 6,
+            joke: "Why was the math book sad? Because it had too many problems.",
+          },
+          {
+            id: 7,
+            joke: "Why did the bicycle fall over? Because it was two-tired!",
+          },
+          {
+            id: 8,
+            joke: "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
+          },
+          {
+            id: 9,
+            joke: "What do you call cheese that isn't yours? Nacho cheese.",
+          },
+          {
+            id: 10,
+            joke: "What do you call a bear with no teeth? A gummy bear.",
+          },
+        ],
+      };
+
+      let lastNum;
+      const showJoke = () => {
+        let randInt;
+
+        do {
+          randInt = Math.floor(Math.random() * 10);
+          document.body.children[1].firstElementChild.firstElementChild.firstElementChild.innerHTML =
+            jokesData.jokes[randInt].joke;
+        } while (lastNum == randInt);
+
+        lastNum = randInt;
+      };
+    </script>
+  </body>
+</html>
