@@ -1,11 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clock</title>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        font-family: "Parkinsans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+      }
+      .dark {
+        background-color: black;
+        color: white;
+      }
+
+      nav {
+        width: 95%;
+        left: 2.5%;
+        position: relative;
+        top: 2.5%;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: palegoldenrod;
+        border-radius: 12px;
+      }
+
+      .info {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-top: 5vh;
+        height: 75vh;
+        border-radius: 12px;
+      }
+
+      nav > button {
+        margin-right: 20px;
+      }
+      nav > h1 {
+        margin-left: 20px;
+      }
+
+      button {
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        padding: 7px 12px;
+        border-radius: 12px;
+        font-family: "Doto", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "ROND" 100;
+      }
+
+      .btnDark {
+        background-color: black;
+        color: white;
+      }
+
+      .clock {
+        font-family: "Doto", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "ROND" 100;
+        display: flex;
+        justify-content: space-around;
+        background-color: palegreen;
+        height: 25vh;
+        align-items: center;
+        font-size: 54px;
+        border-radius: 12px;
+    }
     
-</body>
+    .date {
+          margin-top: 15vh;
+        font-family: "Doto", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "ROND" 100;
+        background-color: paleturquoise;
+        display: flex;
+        margin-bottom: 7.5vh;
+        height: 15vh;
+        font-size: 38px;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <h1>Clock</h1>
+        <button type="button" id="darkMode">Dark Mode</button>
+      </nav>
+      <div class="info">
+        <div class="date">
+          <h1 id="date"></h1>
+          <p>-</p>
+          <h1 id="month"></h1>
+          <p>-</p>
+          <h1 id="year"></h1>
+        </div>
+        <div class="clock">
+          <h1 id="hours"></h1>
+          <p>:</p>
+          <h1 id="minutes"></h1>
+          <p>:</p>
+          <h1 id="seconds"></h1>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let btn = document.getElementById("darkMode");
+    btn.onclick = () => {
+      document
+        .getElementsByClassName("container")[0]
+        .classList.toggle("btnDark");
+      btn.classList.toggle("dark");
+      if (btn.innerHTML == "Dark Mode") {
+        btn.innerHTML = "Light Mode";
+      } else {
+        btn.innerHTML = "Dark Mode";
+      }
+    };
+
+    let getTime = () => {
+      let a = new Date();
+      let h = a.getHours();
+      let m = a.getMinutes();
+      let s = a.getSeconds();
+      let d = a.getDate();
+      let mn = a.getMonth();
+      let yr = a.getFullYear();
+      document.getElementById("hours").innerHTML =
+        h< 10 ? "0" + (h) : h;
+      document.getElementById("minutes").innerHTML =
+        m < 10 ? "0" + (m) : m;
+      document.getElementById("seconds").innerHTML =
+        s < 10 ? "0" + (s) : s;
+      document.getElementById("date").innerHTML =
+        d < 10 ? "0" + (d) : d;
+      document.getElementById("month").innerHTML =
+        mn + 1 < 10 ? "0" + (mn + 1) : mn + 1;
+      document.getElementById("year").innerHTML = yr;
+    };
+    setInterval(getTime, 1000);
+  </script>
 </html>
