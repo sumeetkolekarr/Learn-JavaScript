@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InnerHTML AND OuterHTML</title>
+  </head>
+  <body>
+    <p>I am paragraph tag</p>
+    Hello World
+    <span id="first"><strong>Hey, </strong>I am a Span</span>
+    <span id="second" hidden>I am a span</span>
+  </body>
+  <script>
+    console.log("I am a file");
+
+    let x = document.getElementsByTagName("span")[0];
+    console.log(x);
+    console.dir(x);
+
+    console.log(document.body.firstChild);
+    console.log(document.body.firstChild.nodeValue);
+    console.log(document.body.firstChild.data);
+    console.log(document.body.firstChild.nodeName);
+    console.log(document.body.firstElementChild.nodeName);
+    console.log(document.body.textContent);
+
+    let first = document.getElementById("first");
+    first.innerHTML = "<i>I am Italics</i>";
+
+    let second = document.getElementById("first");
+    second.outerHTML = "<div>I am a Div</div>";
+    second.hidden = false;
+  </script>
+</html>

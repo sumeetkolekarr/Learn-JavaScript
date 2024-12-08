@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Timeout and Set Interval</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .box {
+        height: 100px;
+        width: 100px;
+        background-color: palevioletred;
+      }
+
+      .color {
+        background-color: palegoldenrod;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="para"></p>
+    <div class="box"></div>
+  </body>
+  <script>
+    // Clears all the HTML
+    // setTimeout(() => {
+    //   document.write("Hello World");
+    // }, 2000);
+
+    // Won't clear everything
+    // let a = setTimeout(() => {
+    //   document.getElementById("para").innerHTML = "Hello World";
+    // }, 2000);
+
+    // let b = confirm("Do you want to run setTimeout?");
+    // if (b) {
+    //   clearTimeout(a);
+    // }
+    // console.log(a);
+
+    // const sum = (a, b, c) => {
+    //   console.log("Yes, I am Running " + (a + b + c));
+    // };
+
+    // setTimeout(sum, 1000, 1, 2, 4);
+
+    let cl = setInterval(() => {
+     document.getElementsByClassName("box")[0].classList.toggle("color");
+   }, 1000);
+    let c = confirm("Do you want to change colors at setInterval?");
+
+    if (!c) {
+        clearInterval(cl)
+    }
+  </script>
+</html>

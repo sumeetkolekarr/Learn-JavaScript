@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Events</title>
+  </head>
+  <body>
+    <!-- <div
+      class="container"
+      onclick="console.log('Clicked on Container')"
+      onmouseenter="console.log('Mouse is inside the Container')"
+    > -->
+    <div
+      class="container"
+    >
+      <!-- <button type="button" onclick="alert('hello'); let a = 6; console.log(a);"> -->
+      <button id="btn" type="button">
+        Click me
+      </button>
+    </div>
+  </body>
+  <script>
+    // let b = document.getElementsByClassName('container')[0]
+    // b.onclick = () => {
+    //     let c = document.getElementsByClassName('container')[0]
+    //     c.innerHTML = "Hello" + c.innerHTML
+    // }
+
+    let x = (e) => {
+        console.log(e);
+        console.log(e.target);
+        // alert('Hello 1')
+    }
+    let z = (e) =>{
+        // alert('Hello 2')
+        console.log(e.clientX, e.clientY);
+    }
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', x)
+    btn.addEventListener('click', z)
+
+    let c = confirm('Do you want alerts?')
+    if(!c){
+        btn.removeEventListener('click',x)
+        btn.removeEventListener('click',z)
+    }
+  </script>
+</html>

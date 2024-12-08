@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice 8</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .bulb {
+        width: 100px;
+        height: 100px;
+      }
+      .light {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Q1 -->
+    <!-- <button type="button" onclick="alert('Hello 1')">Button 1</button>
+     <button type="button" onclick="alert('Hello 2')">Button 2</button>
+     <button type="button" onclick="alert('Hello 3')">Button 3</button> -->
+
+    <!-- Q2 -->
+    <h1>BookMarks</h1>
+    <!-- <a href="https://google.com"><button id="google" type="button">Google</button></a>
+    <a href="https://fb.com"><button id="fb" type="button">FB</button></a>
+    <a href="https://instagram.com"><button id="insta" type="button">Insta</button></a> -->
+
+    <!-- Q3 -->
+    <button id="google" type="button">Google</button>
+    <button id="fb" type="button">FB</button>
+    <button id="insta" type="button">Insta</button>
+
+    <!-- Q5 -->
+    <div class="bulb"></div>
+    <button type="button" onclick="toggleBulb()">Turn On</button>
+  </body>
+  <script>
+    // Q3
+    document.getElementById("google").addEventListener("click", function () {
+      window.location = "https://google.com";
+    });
+
+    document.getElementById("fb").addEventListener("click", function () {
+      window.location = "https://fb.com";
+    });
+
+    document.getElementById("insta").addEventListener("click", function () {
+      window.location = "https://instagram.com";
+    });
+
+    // Q4
+    const fetchContent = async (url) => {
+      con = await fetch(url);
+      let a = await con.json();
+      return a;
+    };
+
+    setInterval(async function () {
+      let url = "https://jsonplaceholder.typicode.com/todos/1";
+      console.log(await fetchContent(url));
+    }, 1000);
+
+    // Q5
+    let btn = document.getElementsByTagName("button")[3];
+    let toggleBulb = () => {
+      document.getElementsByClassName("bulb")[0].classList.toggle("light");
+      if (btn.innerHTML == "Turn On") {
+        btn.innerHTML = "Turn Off";
+      } else {
+        btn.innerHTML = "Turn On";
+      }
+    };
+  </script>
+</html>

@@ -89,7 +89,7 @@
         let randInt;
 
         do {
-          randInt = Math.floor(Math.random() * 10);
+          randInt = Math.floor(Math.random() * jokesData.jokes.length);
           document.body.children[1].firstElementChild.firstElementChild.firstElementChild.innerHTML =
             jokesData.jokes[randInt].joke;
         } while (lastNum == randInt);
