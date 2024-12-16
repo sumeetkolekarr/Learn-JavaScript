@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Synchronous Programming
+    // let a = "Lucky";
+    // let b = "Young";
+    // console.log(a + " is " + b);
+
+    // Async Programming
+    // console.log("Start");
+    // setTimeout(() => {
+    //   console.log("Cool");
+    // }, 3000);
+    // console.log("End");
+
+    // Callbacks
+    function loadSrc(src, callback) {
+      let script = document.createElement("script");
+      script.src = src;
+      script.onload = function () {
+        console.log("Script Loaded with src " + src);
+        callback(null, src);
+      };
+      script.onerror = function () {
+        console.log("Error loading script with SRC: " + src);
+        callback(new Error("src got some error"));
+      };
+      document.body.appendChild(script);
+    }
+
+    function hello(err, src) {
+      if (err) {
+        return;
+      }
+      alert("Hello World!" + src);
+    }
+
+    function goodMorning(err, src) {
+      if (err) {
+        return;
+      }
+      alert("Good Morning" + src);
+    }
+
+    loadSrc(
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+      hello
+    );
+    // Problem with Callback is that the whole function gets passed in as an argument in another Function, so if any mistake gets induced in the code then it could be very lethal as the code could generate errors even if everything runs fine
+  </script>
+</html>
