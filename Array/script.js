@@ -53,7 +53,8 @@ let marks = [51, 82, 33, 64, 58, null, false, "Not Present"];
 // console.log(marks);
 // console.log(newMarks);
 
-// Sorts an array alphabetically and chnages the main array
+// Sorts an array alphabetically and chan
+// ges the main array
 // console.log(marks);
 // marks.sort()
 // console.log(marks);
@@ -62,7 +63,7 @@ let numArr = [4, 52, 74, 1, 23, 45];
 // numArr.sort((a, b) => a - b);
 // console.log(numArr);
 
-// Reverses the Array and chnages the original arry
+// Reverses the Array and changes the original array
 // numArr.reverse();
 // console.log(numArr);
 

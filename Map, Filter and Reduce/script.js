@@ -1,7 +1,7 @@
 let arr = [5, 2, 8, 6, 4];
 
 // Map Method
-// Map makes new array and original array is not changed and foreach does not
+// Map makes new array and original array is not changed and foreach does not change the original array
 // let a = arr.map((element, index, array) => {
 //   console.log(element, index, array);
 //   return index + element;
