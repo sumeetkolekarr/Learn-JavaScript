@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Handlers</title>
+  </head>
+  <style>
+    body{
+        background-color: black;
+    }
+  </style>
+  <body></body>
+  <script>
+    let p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        alert("I am Resolved");
+        resolve(1);
+      }, 2000);
+    });
+
+    p1.then(() => {
+      console.log("This Promise is now resolved");
+      return new Promise((res, rej)=>{
+        setTimeout(() => {
+            alert('New Promise is also Attached')
+            res(6)
+        }, 6000);
+      })
+    }).then((value)=>{
+        console.log(value);
+    });
+
+    p1.then(() => {
+      console.log("Hurray");
+      return 4
+    }).then((value)=>{
+        console.log(value);
+    });
+  </script>
+</html>

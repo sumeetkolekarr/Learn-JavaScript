@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Object</title>
+  </head>
+  <body></body>
+  <script>
+    try {
+      let age = prompt("Enter Your Age");
+      age = number.parseInt(age);
+      if (age > 150) {
+        throw new ReferenceError("This is probably not true");
+      }
+      //   console.log(Momo);
+      //   throw new ReferenceError("Momo is Great")
+    } catch (error) {
+      console.log(error.name);
+      console.log(error.message);
+      console.log(error.stack);
+    }
+  </script>
+</html>

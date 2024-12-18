@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling</title>
+  </head>
+  <body></body>
+  <script>
+    setTimeout(() => {
+      console.log("Hacking Wifi...");
+    }, 1000);
+
+    // TryCatch Does not cath the errors of asynchronous code
+    try {
+      setTimeout(() => {
+        try {
+          console.log(Bunny);
+        } catch (error) {
+          console.log(error);
+        }
+      }, 100);
+      console.log(SK);
+    } catch (error) {
+      console.log(error);
+    }
+
+    setTimeout(() => {
+      console.log("Retriving Username and Password");
+    }, 2000);
+
+    setTimeout(() => {
+      console.log("Displaying Username and Password");
+    }, 3000);
+  </script>
+</html>
