@@ -96,7 +96,7 @@
     }
     
     .date {
-          margin-top: 15vh;
+          margin-top: 5vh;
         font-family: "Doto", serif;
         font-optical-sizing: auto;
         font-style: normal;
@@ -110,6 +110,19 @@
         align-items: center;
         border-radius: 12px;
       }
+
+      .day{
+        margin-top: 10vh;
+        background-color: palevioletred;
+        display: flex;
+        margin-bottom: 2.5vh;
+        height: 10vh;
+        font-size: 38px;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 12px;
+
+      }
     </style>
   </head>
   <body>
@@ -119,6 +132,9 @@
         <button type="button" id="darkMode">Dark Mode</button>
       </nav>
       <div class="info">
+        <div class="day">
+          <div id="day"></div>
+        </div>
         <div class="date">
           <h1 id="date"></h1>
           <p>-</p>
@@ -158,6 +174,8 @@
       let d = a.getDate();
       let mn = a.getMonth();
       let yr = a.getFullYear();
+      let dy = a.getDay()
+      let dyList = [ 'Sun','Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
       document.getElementById("hours").innerHTML =
         h< 10 ? "0" + (h) : h;
       document.getElementById("minutes").innerHTML =
@@ -169,6 +187,7 @@
       document.getElementById("month").innerHTML =
         mn + 1 < 10 ? "0" + (mn + 1) : mn + 1;
       document.getElementById("year").innerHTML = yr;
+      document.getElementById("day").innerHTML = dyList[dy];
     };
     setInterval(getTime, 1000);
   </script>

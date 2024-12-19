@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finally Clause</title>
+  </head>
+  <body></body>
+  <script>
+    // Finally Clause runs the code regardless of code running successfully or throwing an error and also if code returns any value also then also the finally clause runs
+
+    const f = () => {
+      try {
+        let a = 0;
+        console.log(prog);
+        console.log("Program ran successfully");
+        return;
+      } catch (error) {
+        console.log(error);
+        console.log(p);
+      } finally {
+        console.log("Code Ran");
+      }
+    };
+    f();
+  </script>
+</html>
