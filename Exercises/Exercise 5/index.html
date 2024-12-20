@@ -91,16 +91,14 @@
 
     setTimeout(() => {
       clearInterval(startHeading);
-    }, Math.floor(Math.random() * 3000));
+    }, Math.floor(Math.random() * 500));
 
-    let localObj = new Object();
-    if (localStorage.length !== 0) {
       let p1 = new Promise((resolve, reject) => {
         let newDiv = document.createElement("div");
         newDiv.id = "id1";
         document.body.getElementsByClassName("mainContent")[0].append(newDiv);
         setTimeout(() => {
-          resolve("Initializing Hack Program");
+          resolve("Initializing Program");
         }, Math.floor(Math.random() * 5000) + 3000);
       });
       let p2 = new Promise((resolve, reject) => {
@@ -261,6 +259,5 @@
           });
       }
       append();
-    }
   </script>
 </html>
