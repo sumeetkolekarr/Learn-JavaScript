@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+        overflow: hidden;
+        color: #58b563;
+        font-family: "Inconsolata", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+      .main {
+        margin-top: 2.5vh;
+      }
+      .mainContent {
+        margin-top: 5vh;
+        font-size: 24px;
+        padding-left: 12px;
+      }
+      h1 {
+        text-align: center;
+      }
+      #keyNum {
+        margin-top: 2.5vh;
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        visibility: hidden;
+      }
+      .btns {
+        margin-top: 2.5vh;
+      }
+      button {
+        height: 45px;
+        width: 75px;
+        background-color: #58b563;
+        border: 1px solid #58b563;
+        color: white;
+        font-size: larger;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <title>Exercise 5</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1 id="heading">Just Another Friendly Website ☺️</h1>
+      <div class="mainContent" id="mainContent">
+        <div id="hackHeading">Have Patience</div>
+      </div>
+      <div id="keyNum">
+        <h4>
+          DO YOU WANT TO DELETE YOUR SAVED PERSONAL INFORMATION FROM THE SERVER?
+        </h4>
+        <div class="btns">
+          <a href="https://youtu.be/dQw4w9WgXcQ?si=HcFykS8zo4WeX_EN"
+            ><button type="button">Yes</button></a
+          >
+          <a href="https://youtu.be/dQw4w9WgXcQ?si=HcFykS8zo4WeX_EN"
+            ><button type="button">No</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let startHeading = setInterval(() => {
+      document.getElementById("hackHeading").innerHTML =
+        document.getElementById("hackHeading").innerHTML + ".";
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(startHeading);
+    }, Math.floor(Math.random() * 3000));
+
+    let localObj = new Object();
+    if (localStorage.length !== 0) {
+      let p1 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id1";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Initializing Hack Program");
+        }, Math.floor(Math.random() * 5000) + 3000);
+      });
+      let p2 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id2";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Detecting Host Environment");
+        }, Math.floor(Math.random() * 5000) + 5000);
+      });
+      let p3 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id3";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Searching For any Sensitive Information");
+        }, Math.floor(Math.random() * 5000) + 10000);
+      });
+      let p4 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id4";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Sensitive Information found Through Google SafetyNet API");
+        }, Math.floor(Math.random() * 5000) + 15000);
+      });
+      let p5 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id5";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Searching For any Other Sensitive Information");
+        }, Math.floor(Math.random() * 5000) + 20000);
+      });
+      let p6 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id6";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("User Credentials and other Sensitive Info Found");
+        }, Math.floor(Math.random() * 5000) + 25000);
+      });
+      let p7 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id7";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve(
+            "All the gathered Information is getting transferred to the Server"
+          );
+        }, Math.floor(Math.random() * 5000) + 30000);
+      });
+      let p8 = new Promise((resolve, reject) => {
+        let newDiv = document.createElement("div");
+        newDiv.id = "id8";
+        document.body.getElementsByClassName("mainContent")[0].append(newDiv);
+        setTimeout(() => {
+          resolve("Transfer is Successful");
+        }, Math.floor(Math.random() * 5000) + 35000);
+      });
+
+      async function append() {
+        let d1, d2, d3, d4, d5, d6, d7, d8, d9;
+        await p1
+          .then((value) => {
+            document.getElementById("hackHeading").innerHTML = value;
+          })
+          .then(() => {
+            d1 = setInterval(() => {
+              document.getElementById("hackHeading").innerHTML =
+                document.getElementById("hackHeading").innerHTML + ".";
+            }, 500);
+          });
+        await p2
+          .then((value) => {
+            document.getElementById("id1").innerHTML = value;
+            clearInterval(d1);
+          })
+          .then(() => {
+            d2 = setInterval(() => {
+              document.getElementById("id1").innerHTML =
+                document.getElementById("id1").innerHTML + ".";
+            }, 500);
+          });
+        await p3
+          .then((value) => {
+            document.getElementById("id2").innerHTML = value;
+            clearInterval(d2);
+          })
+          .then(() => {
+            d3 = setInterval(() => {
+              document.getElementById("id2").innerHTML =
+                document.getElementById("id2").innerHTML + ".";
+            }, 500);
+          });
+        await p4
+          .then((value) => {
+            document.getElementById("id3").innerHTML = value;
+            clearInterval(d3);
+          })
+          .then(() => {
+            d4 = setInterval(() => {
+              document.getElementById("id3").innerHTML =
+                document.getElementById("id3").innerHTML + ".";
+            }, 500);
+          });
+        await p5
+          .then((value) => {
+            document.getElementById("id4").innerHTML = value;
+            clearInterval(d4);
+          })
+          .then(() => {
+            d5 = setInterval(() => {
+              document.getElementById("id4").innerHTML =
+                document.getElementById("id4").innerHTML + ".";
+            }, 500);
+          });
+        await p6
+          .then((value) => {
+            document.getElementById("id5").innerHTML = value;
+            clearInterval(d5);
+          })
+          .then(() => {
+            d6 = setInterval(() => {
+              document.getElementById("id5").innerHTML =
+                document.getElementById("id5").innerHTML + ".";
+            }, 500);
+          });
+        await p7
+          .then((value) => {
+            document.getElementById("id6").innerHTML = value;
+            clearInterval(d6);
+          })
+          .then(() => {
+            d7 = setInterval(() => {
+              document.getElementById("id6").innerHTML =
+                document.getElementById("id6").innerHTML + ".";
+            }, 500);
+          });
+        await p8
+          .then((value) => {
+            document.getElementById("id7").innerHTML = value;
+            clearInterval(d7);
+          })
+          .then(() => {
+            d8 = setInterval(() => {
+              document.getElementById("id7").innerHTML =
+                document.getElementById("id7").innerHTML + ".";
+            }, 500);
+          })
+          .then(() => {
+            setTimeout(() => {
+              clearInterval(d8);
+              document.getElementById("mainContent").textContent = "";
+              document.getElementById("keyNum").style.visibility = "visible";
+              document.getElementById("heading").textContent = "Just Another Deadly Website ☠️";
+            }, Math.floor(Math.random() * 5000));
+          });
+      }
+      append();
+    }
+  </script>
+</html>
