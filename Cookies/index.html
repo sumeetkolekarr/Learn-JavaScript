@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies</title>
+  </head>
+  <body></body>
+  <script>
+    console.log(document.cookie);
+    document.cookie = "name=lucky";
+    document.cookie = "cat=momo";
+    document.cookie = "name=luckyCat";
+    let key = prompt("Enter your Key");
+    let value = prompt("Enter your Value");
+    document.cookie = `${encodeURIComponent(key)} = ${encodeURIComponent(
+      value
+    )}`;
+    // To Decode encoding, use decodeURIComponent(key) to convert the encoding back to strings
+    console.log(document.cookie);
+
+    // Cookie size can be maximum of 4 kb and a max of 20 cookies can be set
+  </script>
+</html>

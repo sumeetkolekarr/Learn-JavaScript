@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body></body>
+  <script>
+    let p = fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    );
+    p.then((value) => {
+        console.log(value.status);
+        console.log(value.ok);
+      return value.json();
+    }).then((value)=>{
+        console.log(value);
+    });
+  </script>
+</html>
