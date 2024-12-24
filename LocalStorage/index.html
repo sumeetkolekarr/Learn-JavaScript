@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+  </head>
+  <body></body>
+  <script>
+    //Both key and values must be strings
+    // JSON.stringify(object) & JSON.parse(string) are 2 methods that help in storing objects in localStorage
+    let key = prompt("Enter the key you want to set");
+    let value = prompt("Enter the value you want to set");
+    // SetItem sets the key, value pairs and also updates the values from a particular key
+    localStorage.setItem(key, value);
+
+    console.log(`The value ar ${key} is ${localStorage.getItem(key)}`);
+
+    if (key == "red" || key == "blue") {
+      localStorage.removeItem(key);
+    }
+
+    if (key == 0) {
+      localStorage.clear;
+    }
+  </script>
+</html>

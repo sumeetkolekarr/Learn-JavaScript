@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session Storage</title>
+  </head>
+  <body></body>
+  <script>
+    // Difference between the localstorage and sessionstorage is that localstorage stores the key value pairs for a particular url and sessionstorage stores the key value pairs for a particular session which stores data even if refreshed but the data is lost when the window is closed and new window is opened
+    // sessionStorage.setItem('cat', 'lucky')
+    // sessionStorage.getItem('cat')
+    // sessionStorage.removeItem('cat')
+    // sessionStorage.clear()
+
+    window.onstorage = (e) => {
+        alert('Changed')
+        console.log(e);
+    }
+  </script>
+</html>
