@@ -1,11 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercise 6</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="heading">ToDo WebSite</h1>
+      <label for="todoName">Enter the Todo</label>
+      <input type="text" name="todoName" id="todoName" />
+      <button onclick="addTodo()" type="submit">Add Todo</button>
+      <h1>TODOS to Do</h1>
+      <div class="todos" id="todos"></div>
+      <h1>Completed Todos</h1>
+      <div class="completedTodos" id="completedTodos"></div>
+    </div>
+  </body>
+  <script>
+    let isKeyNotPresent = (key) => {
+      return localStorage.getItem(key) == null;
+    };
+    let completedTodo = () => {
+      if (!isKeyNotPresent("completedTodo")) {
+        let items = localStorage.getItem("completedTodo");
+        let JSONItems = JSON.parse(items);
+        let completedTodos = document.getElementById("completedTodos");
+        if (JSONItems.length == 0) {
+          completedTodos.innerHTML = "No Completed TODOs to Display";
+        } else {
+          JSONItems.forEach((element, idx) => {
+            let div = document.createElement("div");
+            let deleteButton = document.createElement("button");
+            let completedButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete";
+            completedButton.innerHTML = "Not Completed";
+            div.id = `${idx}`;
+            deleteButton.onclick = () => {
+              let todoArray = JSON.parse(localStorage.getItem("completedTodos"));
+              todoArray.splice(idx, 1);
+              localStorage.setItem("completedTodos", JSON.stringify(todoArray));
+              setTimeout(() => {
+                location.reload();
+              }, 50);
+            };
+            completedButton.onclick = () => {
+              let todoArray = JSON.parse(localStorage.getItem("completedTodo"));
+              let completedTodo = todoArray.splice(idx, 1);
+              localStorage.setItem("completedTodo", JSON.stringify(todoArray));
+              let completedArray = JSON.parse(
+                localStorage.getItem("todo")
+              );
+              completedArray.push(completedTodo.join());
+              localStorage.setItem(
+                "todo",
+                JSON.stringify(completedArray)
+              );
+              setTimeout(() => {
+                location.reload();
+              }, 50);
+            };
+            div.innerHTML = element;
+            div.append(deleteButton);
+            div.append(completedButton);
+            document.getElementById("completedTodos").append(div);
+          });
+        }
+      } else {
+        localStorage.setItem("completedTodo", JSON.stringify([]));
+        document.getElementById("completedTodos").innerHTML =
+          "No Completed TODOs to Display";
+      }
+    };
+    let displayTodos = () => {
+      if (!isKeyNotPresent("todo")) {
+        let items = localStorage.getItem("todo");
+        let JSONItems = JSON.parse(items);
+        let todos = document.getElementById("todos");
+        if (JSONItems.length == 0) {
+          todos.innerHTML = "No TODOs to Display";
+          document.getElementById("todos").innerHTML = "No TODOs to Display";
+        } else {
+          JSONItems.forEach((element, idx) => {
+            let div = document.createElement("div");
+            let deleteButton = document.createElement("button");
+            let editButton = document.createElement("button");
+            let completedButton = document.createElement("button");
+            editButton.innerHTML = "Edit";
+            deleteButton.innerHTML = "Delete";
+            completedButton.innerHTML = "Completed";
+            div.id = `${idx}`;
+            editButton.onclick = () => {
+              let todoArray = JSON.parse(localStorage.getItem("todo"));
+              let changedTodo = prompt("Enter the changed todo...");
+              if (changedTodo.trim() != "") {
+                todoArray[idx] = changedTodo;
+                localStorage.setItem("todo", JSON.stringify(todoArray));
+                setTimeout(() => {
+                  location.reload();
+                }, 50);
+              } else {
+                alert("Enter Something");
+              }
+            };
+            deleteButton.onclick = () => {
+              let todoArray = JSON.parse(localStorage.getItem("todo"));
+              todoArray.splice(idx, 1);
+              localStorage.setItem("todo", JSON.stringify(todoArray));
+              setTimeout(() => {
+                location.reload();
+              }, 50);
+            };
+            completedButton.onclick = () => {
+              let todoArray = JSON.parse(localStorage.getItem("todo"));
+              let completedTodo = todoArray.splice(idx, 1);
+              localStorage.setItem("todo", JSON.stringify(todoArray));
+              let completedArray = JSON.parse(
+                localStorage.getItem("completedTodo")
+              );
+              completedArray.push(completedTodo.join());
+              localStorage.setItem(
+                "completedTodo",
+                JSON.stringify(completedArray)
+              );
+              setTimeout(() => {
+                location.reload();
+              }, 50);
+            };
+            div.innerHTML = element;
+            div.append(deleteButton);
+            div.append(editButton);
+            div.append(completedButton);
+            todos.append(div);
+          });
+        }
+      } else {
+        localStorage.setItem("todo", JSON.stringify([]));
+        document.getElementById("todos").innerHTML = "No TODOs to Display";
+      }
+    };
+    let addTodo = () => {
+      let todoName = document.getElementById("todoName");
+      let todoArray = JSON.parse(localStorage.getItem("todo"));
+      if (todoName.value.trim() !== "") {
+        todoArray.unshift(todoName.value);
+        localStorage.setItem("todo", JSON.stringify(todoArray));
+        setTimeout(() => {
+          location.reload();
+        }, 50);
+      } else {
+        alert("Enter Something");
+      }
+    };
+    completedTodo();
+    displayTodos();
+  </script>
 </html>

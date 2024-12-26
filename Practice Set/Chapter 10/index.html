@@ -91,7 +91,7 @@
             <div class="card-body">
               <h5 class="card-title">${(coins[item].id).toUpperCase()}</h5>
               <p class="card-text">
-                Current Price : ${coins[item].current_price}
+                Current Price : ${coins[item].current_price}$
               </p>
               <button class="btn btn-${coins[item].price_change_24h < 0 ? 'danger' : 'primary' }">${Math.round((coins[item].price_change_24h)*100)/100} % ${coins[item].price_change_24h < 0 ? 'Decrease' : 'Increase'}</button>
             </div>
