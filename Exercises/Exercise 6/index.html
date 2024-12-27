@@ -31,13 +31,16 @@
         } else {
           JSONItems.forEach((element, idx) => {
             let div = document.createElement("div");
+            let p = document.createElement("p");
             let deleteButton = document.createElement("button");
             let completedButton = document.createElement("button");
             deleteButton.innerHTML = "Delete";
             completedButton.innerHTML = "Not Completed";
             div.id = `${idx}`;
             deleteButton.onclick = () => {
-              let todoArray = JSON.parse(localStorage.getItem("completedTodos"));
+              let todoArray = JSON.parse(
+                localStorage.getItem("completedTodos")
+              );
               todoArray.splice(idx, 1);
               localStorage.setItem("completedTodos", JSON.stringify(todoArray));
               setTimeout(() => {
@@ -48,19 +51,16 @@
               let todoArray = JSON.parse(localStorage.getItem("completedTodo"));
               let completedTodo = todoArray.splice(idx, 1);
               localStorage.setItem("completedTodo", JSON.stringify(todoArray));
-              let completedArray = JSON.parse(
-                localStorage.getItem("todo")
-              );
+              let completedArray = JSON.parse(localStorage.getItem("todo"));
               completedArray.push(completedTodo.join());
-              localStorage.setItem(
-                "todo",
-                JSON.stringify(completedArray)
-              );
+              localStorage.setItem("todo", JSON.stringify(completedArray));
               setTimeout(() => {
                 location.reload();
               }, 50);
             };
-            div.innerHTML = element;
+            p.innerHTML = element;
+            p.style.textDecoration = "line-through";
+            div.append(p);
             div.append(deleteButton);
             div.append(completedButton);
             document.getElementById("completedTodos").append(div);
