@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Rich{
+        constructor(name, bankBalance){
+            this.name = name 
+            this.bankBalance = bankBalance
+        }
+        sourcesOfIncome(numOfSources){
+            this.numOfSources = numOfSources
+            console.log(this.name + ' has ' + numOfSources + ' Number of Sources');
+        }
+    }
+    class Car extends Rich {
+        luxuryCar(carName){
+            this.carName = carName
+            console.log(this.name + ' has '+this.carName+' in the Car Collection');
+        }
+    }
+
+    let sk = new Car('SumeetKolekarr', 534132453431354)
+    sk.luxuryCar('Buggati Veyron')
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class Emp {
+      constructor(name) {
+        this.name = name;
+        console.log("Employee's Constructor");
+      }
+      login() {
+        console.log(`Employee has logged In`);
+      }
+      logout() {
+        console.log(`Employee has logged Out`);
+      }
+      requestLeaves(leaves) {
+        this.leaves = leaves;
+        console.log(`Employee has Requested ${leaves} leaves - Auto Approved`);
+      }
+    }
+
+    class Programmer extends Emp {
+      constructor(name) {
+        super(name);
+        this.name = name;
+        console.log(`Programmer Constructor`);
+      }
+      // If there's no constructor in the child class, the below commented code is created Automatically
+      //   constructor(...args) {
+      //     super(...args)
+      //   }
+      requestCoffee(x) {
+        this.x = x;
+        console.log(`Employee has requested ${x} coffees`);
+      }
+      requestLeaves(leaves) {
+        super.requestLeaves(leaves + 1);
+        console.log("One Extra is Granted");
+        // console.log(`Employee has requested ${leaves+1} leaves (One Extra)`);
+      }
+    }
+
+    let e = new Programmer();
+    e.login();
+    e.requestLeaves(4);
+  </script>
+</html>
