@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- class Password: 
     this.password 
     generateStrongPassword
     generateWeakPassword
     generateSuperStrongPassword
     generateFunnyPassword  -->
-</body>
+  </body>
+  <script>
+    const passwordCharacters = [
+      ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      ..."abcdefghijklmnopqrstuvwxyz",
+      ..."0123456789",
+      ..."!@#$%^&*()-_=+[]{};:'\",.<>/?\\|~`",
+    ];
+
+    class Password {
+      constructor(num) {
+        this.num = num;
+      }
+      generatePassword() {
+        let pass = "";
+        for (let index = 0; index < this.num; index++) {
+          pass +=
+            passwordCharacters[
+              Math.floor(Math.random() * passwordCharacters.length)
+            ];
+        }
+        return pass;
+      }
+    }
+
+    let pass = new Password(8);
+    console.log(pass.generatePassword());
+  </script>
 </html>

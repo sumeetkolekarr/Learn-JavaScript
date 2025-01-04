@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let arr = [3, 8, 5, 9, 12, 14];
+    // No need to do:
+    // let a = arr[0]
+    // let b = arr[1]
+
+    // Instead:
+    // If array has length 2, then after b, if any variable is declared then it's value will be undefined
+    // let [a,b,c] = arr
+
+    // Using Spread Operator with destructuring
+    // let [a, ,c, ...rest] = arr
+    // console.log(a,c, rest);
+
+    let { a, b } = { a: 1, b: 2 };
+    // console.log(a, b);
+
+    // Spread Operator
+    // let arr1 = [3,5,8]
+    // let obj1 = {...arr1}
+    // console.log(obj1);
+
+    // function sum(v1,v2,v3) {
+    //     return v1+v2+v3
+    // }
+
+    // console.log(sum(...arr1));
+
+    let obj2 = {
+      name: "Lucky",
+      company: "Company XYZ",
+      address: "ABC",
+    };
+
+    console.log({ ...obj2, name: "Bunny", company: "XYZ" });
+  </script>
+</html>
