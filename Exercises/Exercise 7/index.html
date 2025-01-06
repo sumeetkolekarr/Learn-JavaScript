@@ -21,23 +21,181 @@
       ..."!@#$%^&*()-_=+[]{};:'\",.<>/?\\|~`",
     ];
 
+    const funnyPasswords = [
+      "NotASecret123",
+      "ILoveBroccoliButDont",
+      "InvisiblePassword",
+      "LaughOutLoudLOL",
+      "HarryP@ssword",
+      "ThisIsMyPassword1",
+      "GuessMyPass",
+      "NoOneWillGuessThis1",
+      "P@ssw0rdN0tFound",
+      "N0tT0dayH@cker",
+      "BananaForScale",
+      "NotYourBusiness123",
+      "CatchMeIfYouCan123",
+      "WhySoSerious?",
+      "ToBeOrNot2Be",
+      "YourPassword1",
+      "Wh0NeedsAP@ssword?",
+      "MeYouAndPassw0rd2",
+      "GandalfTheGrey1",
+      "S@turdayNightLive",
+      "BestPassw0rdEver",
+      "123QWERTY!",
+      "PineapplePizzaLover",
+      "JustALittleBitHarder",
+      "ILoveCats1234",
+      "P@ssw0rdQuest",
+      "NinjaInTheShadows",
+      "CaptainObvious1",
+      "ILoveTacos!",
+      "FlyingUnicorn123",
+      "SneezyDragon1",
+      "ChocolateRain007",
+      "SuperP@ssw0rd",
+      "WhereAmI?123",
+      "PotatoInDisguise",
+      "CantThinkOf1",
+      "TheAnswerIs42!",
+      "H0llyw00dDreams",
+      "LostAndF0und",
+      "CoffeeBeansLover1",
+      "UCantTouchThis1",
+      "IL0veIceCream",
+      "P@sswordKing",
+      "Superman@Home",
+      "DancingInTheRain",
+      "W0rkInProgress",
+      "Cheeseburger123",
+      "InvisibleInk1",
+      "RainyDayBlues",
+      "N0nStopHappiness",
+      "FunInTheSun1",
+      "SunshineAndRainbows",
+      "SillyPanda123",
+      "W0rldDomin@tion",
+      "Fe@theredFriends",
+      "ComicBookHero1",
+      "AdventuresAwait",
+      "GlitterAndSparkle",
+      "MagicCarpetRide1",
+      "RainbowSprinkles",
+      "SugarAndSpice1",
+      "WhisperingWind",
+      "CrispyBacon1",
+      "EpicJourney123",
+      "RollingThunder1",
+      "DancingOnTheMoon",
+      "StarlightDreams",
+      "Wh1zzardW0rks",
+      "MysteryMachine1",
+      "P@ssportToFun",
+      "HappyFeet123",
+      "W@rriorPrincess",
+      "MoonlitNight123",
+      "F@iryTalesLive",
+      "SecretAgent007",
+      "MysteryIsland1",
+      "RunWithScissors",
+      "SleepyHollow1",
+      "G@laxyQuest123",
+      "UnderwaterWorld",
+      "WildWest1234",
+      "N0nsenseNinja1",
+      "V@mpireDiaries",
+      "KingdomKeys123",
+      "HobbitHole1",
+      "Sh@dowRealm123",
+      "MysticalLands1",
+      "Gl@diatorGames",
+      "DystopianDreams",
+      "PhoenixRising1",
+      "ArcticBlast123",
+      "SandsOfTime1",
+      "MysticMaze123",
+      "TimeTraveler1",
+      "G@lacticWarrior",
+      "ShootingStars1",
+      "EpicQuest123",
+      "MySecretPass!",
+      "Wh@tAGreatDay",
+      "CantFindMe1",
+      "admin",
+      "incorrect",
+    ];
+
+    let oldRand;
+
     class Password {
-      constructor(num) {
-        this.num = num;
-      }
-      generatePassword() {
-        let pass = "";
-        for (let index = 0; index < this.num; index++) {
-          pass +=
-            passwordCharacters[
-              Math.floor(Math.random() * passwordCharacters.length)
-            ];
+      generateWeakPassword(num1) {
+        this.num1 = num1;
+        if (this.num1 < 7 && this.num1 > 2) {
+          let weakPass = "";
+          for (let index = 0; index < this.num1; index++) {
+            weakPass +=
+              passwordCharacters[
+                Math.floor(Math.random() * passwordCharacters.length)
+              ];
+          }
+          return weakPass;
+        } else {
+          return this.num1 < 0
+            ? ("Enter a number greater than 0...")
+            : ("Enter a number between 7 and 2...");
         }
-        return pass;
+      }
+      generatePassword(num) {
+        this.num = num;
+        if (this.num < 28 && this.num > 6) {
+          let pass = "";
+          for (let index = 0; index < this.num; index++) {
+            pass +=
+              passwordCharacters[
+                Math.floor(Math.random() * passwordCharacters.length)
+              ];
+          }
+          return pass;
+        } else {
+          return this.num < 0
+            ? ("Enter a number greater than 0...")
+            : ("Enter a number between 28 and 6...");
+        }
+      }
+      generateSuperStrongPassword(num2) {
+        this.num2 = num2;
+        if ( this.num2 > 27) {
+          let strongPass = "";
+          for (let index = 0; index < this.num2; index++) {
+            strongPass +=
+              passwordCharacters[
+                Math.floor(Math.random() * passwordCharacters.length)
+              ];
+          }
+          return strongPass;
+        } else {
+          return this.num < 0
+            ? ("Enter a number greater than 0...")
+            : ("Enter a number greater than 28...");
+        }
+      }
+      generateFunnyPassword() {
+        let randInt = Math.floor(Math.random() * funnyPasswords.length);
+        if (oldRand != randInt) {
+          oldRand = randInt;
+          return funnyPasswords[randInt];
+        } else {
+          randInt = Math.floor(Math.random() * funnyPasswords.length);
+        }
       }
     }
 
-    let pass = new Password(8);
-    console.log(pass.generatePassword());
+    let pass = new Password();
+    console.log(pass.generateWeakPassword(5));
+    console.log(pass.generatePassword(13));
+    console.log(pass.generateSuperStrongPassword(133));
+    console.log(pass.generateFunnyPassword());
+    console.log(passwordCharacters[0]);
   </script>
 </html>
