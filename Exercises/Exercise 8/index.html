@@ -178,7 +178,7 @@
           <h1 id="seconds"></h1>
         </div>
       </div>
-      <div class="addAlarm">
+      <div class="addAlarm" id="addAlarm">
         <div class="outerBtn"><div class="innerBtn">+</div></div>
       </div>
     </div>
@@ -195,6 +195,19 @@
       } else {
         btn.innerHTML = "Dark Mode";
       }
+    };
+    let totalAlarms = localStorage.getItem("totalAlarms");
+    if (totalAlarms == null) {
+      localStorage.setItem("totalAlarms", 0);
+    }
+    // console.log(totalAlarms);
+
+    let addAlarm = document.getElementById("addAlarm");
+    addAlarm.onclick = () => {
+      let totalAlarms = localStorage.getItem("totalAlarms");
+      totalAlarms++;
+      console.log(totalAlarms);
+      localStorage.setItem("totalAlarms", totalAlarms);
     };
 
     let getTime = () => {
