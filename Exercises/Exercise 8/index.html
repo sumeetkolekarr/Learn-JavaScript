@@ -24,11 +24,15 @@
     </div>
   </body>
   <script>
+    let repeatInterval;
+    let countDownInterval;
+    const audio = new Audio("beep.mp3");
     function submitFn() {
       let minutes = document.getElementById("minutes").value;
       let seconds = document.getElementById("seconds").value;
       let remSec = document.getElementById("remSec");
       let btn = document.getElementById("btn");
+      let checkbox = document.getElementById("recur");
 
       let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds);
 
@@ -36,9 +40,12 @@
         alert("Please Enter a valid Number of minutes or Seconds!");
         return;
       }
+
+      checkbox.disabled = true;
       btn.style.display = "none";
 
-      const countDownInterval = setInterval(() => {
+      clearInterval(countDownInterval);
+      countDownInterval = setInterval(() => {
         if (totalSeconds > 0) {
           remSec.innerHTML = `${totalSeconds} seconds remaining`;
           totalSeconds--;
@@ -46,13 +53,16 @@
           clearInterval(countDownInterval);
           remSec.innerHTML = "Time's up!";
           playAudio();
-          btn.style.display = "block";
+          if (checkbox.checked === false) {
+            btn.style.display = "block";
+            checkbox.disabled = false;
+          }
         }
       }, 1000);
     }
 
     function playAudio() {
-      const audio = new Audio("peaceful-place-270760.mp3");
+      audio.currentTime = 0;
       audio.play();
     }
 
@@ -62,18 +72,21 @@
       let checkbox = document.getElementById("recur");
 
       let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds);
-      let repeatInterval;
+      if (isNaN(minutes) || isNaN(seconds) || totalSeconds <= 0) {
+        alert("Please enter a valid number of minutes or seconds!");
+        document.getElementById("recur").checked = false;
+        return;
+      }
+
+      
+      clearInterval(repeatInterval);
       if (checkbox.checked) {
-        const audio = new Audio("peaceful-place-270760.mp3");
         audio.addEventListener("loadedmetadata", () => {
           const duration = audio.duration;
           repeatInterval = setInterval(() => {
             submitFn();
-            console.log(`Audio Duration: ${duration} seconds`);
-          }, totalSeconds + (duration + 0.5) * 1000);
+          }, (totalSeconds + Math.ceil(duration)) * 1000);
         });
-      } else {
-        clearInterval(repeatInterval);
       }
     }
   </script>
