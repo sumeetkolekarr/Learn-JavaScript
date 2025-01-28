@@ -8,6 +8,13 @@
       body {
         background-color: black;
         color: aliceblue;
+        font-family: Arial, sans-serif;
+      }
+      label,
+      input,
+      button {
+        margin: 5px;
+        display: block;
       }
     </style>
   </head>
@@ -22,72 +29,73 @@
     <div>
       <h1 id="remSec"></h1>
     </div>
-  </body>
-  <script>
-    let repeatInterval;
-    let countDownInterval;
-    const audio = new Audio("beep.mp3");
-    function submitFn() {
-      let minutes = document.getElementById("minutes").value;
-      let seconds = document.getElementById("seconds").value;
-      let remSec = document.getElementById("remSec");
-      let btn = document.getElementById("btn");
-      let checkbox = document.getElementById("recur");
 
-      let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds);
+    <script>
+      let repeatInterval;
+      let countDownInterval;
+      const audio = new Audio("beep.mp3");
 
-      if (isNaN(minutes) || isNaN(seconds) || totalSeconds <= 0) {
-        alert("Please Enter a valid Number of minutes or Seconds!");
-        return;
-      }
+      function submitFn() {
+        const minutes = parseInt(document.getElementById("minutes").value);
+        const seconds = parseInt(document.getElementById("seconds").value);
+        const remSec = document.getElementById("remSec");
+        const btn = document.getElementById("btn");
+        const checkbox = document.getElementById("recur");
 
-      checkbox.disabled = true;
-      btn.style.display = "none";
+        let totalSeconds = minutes * 60 + seconds;
 
-      clearInterval(countDownInterval);
-      countDownInterval = setInterval(() => {
-        if (totalSeconds > 0) {
-          remSec.innerHTML = `${totalSeconds} seconds remaining`;
-          totalSeconds--;
-        } else {
-          clearInterval(countDownInterval);
-          remSec.innerHTML = "Time's up!";
-          playAudio();
-          if (checkbox.checked === false) {
-            btn.style.display = "block";
-            checkbox.disabled = false;
-          }
+        if (isNaN(minutes) || isNaN(seconds) || totalSeconds <= 0) {
+          alert("Please enter a valid number of minutes or seconds!");
+          return;
         }
-      }, 1000);
-    }
 
-    function playAudio() {
-      audio.currentTime = 0;
-      audio.play();
-    }
+        checkbox.disabled = true;
+        btn.style.display = "none";
 
-    function checkRecur() {
-      let minutes = document.getElementById("minutes").value;
-      let seconds = document.getElementById("seconds").value;
-      let checkbox = document.getElementById("recur");
-
-      let totalSeconds = parseInt(minutes) * 60 + parseInt(seconds);
-      if (isNaN(minutes) || isNaN(seconds) || totalSeconds <= 0) {
-        alert("Please enter a valid number of minutes or seconds!");
-        document.getElementById("recur").checked = false;
-        return;
+        clearInterval(countDownInterval);
+        countDownInterval = setInterval(() => {
+          if (totalSeconds > 0) {
+            remSec.innerHTML = `${totalSeconds} seconds remaining`;
+            totalSeconds--;
+          } else {
+            clearInterval(countDownInterval);
+            remSec.innerHTML = "Time's up!";
+            playAudio();
+            if (!checkbox.checked) {
+              btn.style.display = "block";
+              checkbox.disabled = false;
+            }
+          }
+        }, 1000);
       }
 
-      
-      clearInterval(repeatInterval);
-      if (checkbox.checked) {
-        audio.addEventListener("loadedmetadata", () => {
-          const duration = audio.duration;
+      function playAudio() {
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      function checkRecur() {
+        const minutes = parseInt(document.getElementById("minutes").value);
+        const seconds = parseInt(document.getElementById("seconds").value);
+        const checkbox = document.getElementById("recur");
+
+        let totalSeconds = minutes * 60 + seconds;
+
+        if (isNaN(minutes) || isNaN(seconds) || totalSeconds <= 0) {
+          alert("Please enter a valid number of minutes or seconds!");
+          checkbox.checked = false;
+          return;
+        }
+
+        clearInterval(repeatInterval);
+        if (checkbox.checked) {
+          // Using a fixed global audio duration for repeat interval
+          const duration = audio.duration || 10; // Default to 10 seconds if duration is unavailable
           repeatInterval = setInterval(() => {
             submitFn();
           }, (totalSeconds + Math.ceil(duration)) * 1000);
-        });
+        }
       }
-    }
-  </script>
+    </script>
+  </body>
 </html>
