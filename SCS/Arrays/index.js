@@ -72,5 +72,67 @@
 // console.log(...arr);
 
 // Q. Insert 'Red' and 'Blue' at index 1 in this array
-let colors = ['Green', 'Yellow']
-colors.splice(1,0,'Red','Blue')
+// let colors = ['Green', 'Yellow']
+// colors.splice(1,0,'Red','Blue')
+
+// Q. Use .map() to square each number:
+// let arr = [1,2,3,4]
+// let newArr = arr.map(function(val){
+//     return val*val
+// })
+// console.log(newArr);
+
+// Q. Use .filter() to keep numbers greater than 10:
+// let arr = [10, 12, 3, 4];
+// let filArr = arr.filter((val) => {
+//   return val > 10;
+// });
+// console.log(filArr);
+
+// Q. Use .reduce() to find the sum of Array:
+// let arr = [10, 12, 3, 4];
+// let sum = arr.reduce(function(acc,val){
+//     return acc+val
+// }, 0)
+// console.log(sum);
+
+// Q. Use .find() to find the first number less than 10:
+// let arr = [10, 12, 3, 4];
+// let arrFin = arr.find(function (val) {
+//   return val < 10;
+// });
+// console.log(arrFin);
+
+// Q. Use .some() to check if any student has scored below 35:
+// let arr = [45,60,15,38]
+// let ans = arr.some(function(val){
+//     return val<35
+// })
+// console.log(ans);
+
+// Q. Use .every() to check if all numbers are even:
+// let arr = [2,4,6,8,10]
+// let ans = arr.every(function(val){
+//     return val%2==0
+// })
+// console.log(ans);
+
+// Q. Destructure to get First Name and Last Name
+// let fullname = ['Sumeet', 'Kolekarr']
+// let [firstName, lastName] = fullname
+// console.log(firstName, lastName);
+
+// Q. Merge 2 arrays using spread operator:
+// let a = [1,2]
+// let b = [3,4]
+// let c = [...a, ...b]
+// console.log(c);
+
+// Q. Add 'India' to the first in the array using spread operator
+// let countries = ['US', 'UK']
+// countries = ['INDIA', ...countries]
+// console.log(countries);
+
+// Q. Clone the array and not by reference
+// arr = [1, 2, 3];
+// arr2 = [...arr];
