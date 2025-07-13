@@ -37,3 +37,15 @@ let abcd = document.querySelector("h1"); // Selects the first element provided a
 // abcd.classList.add('huli')
 // abcd.classList.remove('huli')
 // abcd.classList.toggle('huli')
+
+// getElementsByClassName returns an HTMLCollection of the elements with the respective class name
+// Use textContent as it is faster than innerText and also the innerText displays only the visible part but the textContent displays everything
+// createElement Returns an element node
+
+// let ul = document.querySelectorAll("ul");
+// let li = document.querySelectorAll("li");
+// li.forEach(function (val) {
+//   if (val.textContent.trim() === "Grapes") {
+//     val.parentNode.removeChild(val);
+//   }
+// });
