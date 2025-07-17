@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      h3{
+        text-transform: capitalize;
+      }
+    </style>
   </head>
   <body>
     <p>
@@ -14,6 +19,15 @@
     </p>
     <label for="Name">Name: </label>
     <input type="text" name="Name" id="Name" />
+    <br /><br /><br /><br />
+    <h3 id="device">Select Your Devices:</h3>
+    <select title="mobile">
+      <option selected disabled>Choose Your option</option>
+      <option value="samsung">SamSung</option>
+      <option value="apple">Apple</option>
+      <option value="mi">Xiaomi</option>
+      <option value="oppo">Oppo</option>
+    </select>
     <script src="script.js"></script>
   </body>
 </html>

@@ -37,3 +37,12 @@ input.addEventListener("input", function (ent) {
   document.body.appendChild(h1);
   h1.textContent = ent.timeStamp;
 });
+
+// change Event in DOM
+let sel = document.querySelector('select')
+let device = document.querySelector('#device')
+sel.addEventListener('change',function(dets){
+  // console.log(dets); // Use this to find the name of a key or value
+  // console.log(dets.target.value);
+  device.textContent = dets.target.value+' Device Selected'
+})
